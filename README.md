@@ -10,7 +10,7 @@ This project runs a local API server using **FastAPI** and **LangServe** that ho
 2. **`/bikebot` (Bike Bot)**: Powered by **Groq** (`llama-3.1-8b-instant`). Instructed to only talk about bikes, and refer users asking about cars to the Car Bot.
 
 --
-check out the free grok api at[](https://console.groq.com/keys)
+check out the free grok api at[link](https://console.groq.com/keys)
 --
 ## 🛠️ Step 1: Environment Setup
 
