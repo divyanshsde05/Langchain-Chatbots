@@ -84,64 +84,6 @@ add_routes(app, chain, path="/carbot")
 add_routes(app, chain2, path="/bikebot")
 ```
 
----
-
-## 📝 Step-by-Step Code Walkthrough
-
-Here is the exact code in [app.py](file:///d:/langchain/chatbot/app.py) explained line-by-line:
-
-```python
-from fastapi import FastAPI
-from langchain_community.chat_models import ChatOllama
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-from langserve import add_routes
-import uvicorn
-from langchain_groq import ChatGroq
-import os
-
-# 1. Initialize our FastAPI web application
-app = FastAPI(
-    title="langchain llama 3.2 bot",
-    description="this is my first langchain app",
-    version="1.0"
-)
-
-# 2. Configure credentials for Groq API
-os.environ["GROQ_API_KEY"] = "gsk_Yx9..."
-
-# 3. Instantiate the LLM clients
-# llm uses local Ollama (Llama 3.2)
-llm = ChatOllama(model="llama3.2")
-# llm2 uses Groq API (Llama 3.1 8B Instant)
-llm2 = ChatGroq(model="llama-3.1-8b-instant")
-
-# 4. Define Prompt Templates
-prmt = ChatPromptTemplate.from_messages([
-    ("system", "you are a assistant created by divyansh kharkwal and you give the results only related to cars, dont provide any information other than cars ,if anybody asks for bikes you suggest to go to my other partner assistant bikebot and also if he greets so greet him well "),
-    ("user", "{question}")
-])
-
-prompt2 = ChatPromptTemplate.from_messages([
-    ("system", "you are a grok model and u are designed to do the specific task only which is to provide the data of bikes only,dont provide any information other than bikess, if anybody asks for cars you suggest to go to my other partner assistant Carbot also if he greets so greet him "),
-    ("user", "{question}")
-])
-
-# 5. Build Chains using LCEL (Prompt -> LLM -> String Output)
-chain = prmt | llm | StrOutputParser()
-chain2 = prompt2 | llm2 | StrOutputParser()
-
-# 6. Expose the chains as API routes
-add_routes(app, chain, path="/carbot")
-add_routes(app, chain2, path="/bikebot")
-
-# 7. Start the Uvicorn web server
-if __name__ == "__main__":
-    uvicorn.run(app, port=8888)
-```
-
----
-
 ## 🚀 How to Run & Use the Application
 
 ### 1. Start Ollama (Required for Carbot)
