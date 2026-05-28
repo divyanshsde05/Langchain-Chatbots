@@ -1,0 +1,21 @@
+# Environments
+venv/
+env/
+.venv/
+
+# API Keys and Secrets (CRITICAL)
+.env
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
