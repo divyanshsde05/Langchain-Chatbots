@@ -9,8 +9,9 @@ This project runs a local API server using **FastAPI** and **LangServe** that ho
 1. **`/carbot` (Car Bot)**: Powered by a local **Ollama** model (`llama3.2`). Instructed to only talk about cars, and refer users asking about bikes to the Bike Bot.
 2. **`/bikebot` (Bike Bot)**: Powered by **Groq** (`llama-3.1-8b-instant`). Instructed to only talk about bikes, and refer users asking about cars to the Car Bot.
 
----
-
+--
+check out the free grok api at[](https://console.groq.com/keys)
+--
 ## 🛠️ Step 1: Environment Setup
 
 Before writing code, we set up a dedicated sandbox environment to manage Python dependencies.
@@ -103,7 +104,7 @@ $env:PYTHONUTF8=1
 Once the server starts up, you can interact with your bots using LangServe's auto-generated web UIs:
 * 🚗 **Car Bot Playground**: [http://127.0.0.1:8888/carbot/playground/](http://127.0.0.1:8888/carbot/playground/)
 * 🏍️ **Bike Bot Playground**: [http://127.0.0.1:8888/bikebot/playground/](http://127.0.0.1:8888/bikebot/playground/)
-
+* 🏍️ **Bike Bot Playground**: [http://127.0.0.1:8888/bikebot/playground/](http://127.0.0.1:8888/bikebot/playground/)
 ---
 
 ## 🎯 Key Learnings & Takeaways
